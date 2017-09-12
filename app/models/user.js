@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
-var bcrypt = require('bcrypt-nodejs');
+var Schema   = mongoose.Schema;
+var bcrypt   = require('bcrypt-nodejs');
+
 var UserSchema = new Schema({
 	username: {type: String, required: true, lowercase: true, unique: true},
 	password: {type: String, required: true},
@@ -14,4 +15,4 @@ UserSchema.pre('save', function(next) {
     next();
   });
 });
-module.exports = mongoose.model('User',UserSchema);
+module.exports = mongoose.model('User',UserSchema); 
